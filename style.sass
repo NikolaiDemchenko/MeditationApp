@@ -1,0 +1,90 @@
+@mixin playPauseReplayButtonPosition($width,$top,$left)
+    img
+      width: $width
+      position: absolute
+      top: $top
+      left: $left
+@mixin buttonHover()
+  &:hover
+    transition-duration: 600ms
+    background-color: white
+    color: black
+@mixin buttonBorder()
+  border: 2px solid white
+  border-radius: 5px
+@mixin font()
+  font-family: "Arial", sans-serif
+  color: white
+  font-weight: bold
+@mixin minutesBlockSize()
+  height: 9%
+  width: 120%
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  @include font()
+body
+  position: absolute
+  width: 100%
+  height: 100%
+  display: flex
+  justify-content: space-evenly
+  align-items: center
+video
+  position: fixed
+  top: 0%
+  left: 0%
+  width: 100%
+  z-index: -1
+.minutes-btns
+  width: 7%
+  height: 70%
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  .two-min
+    @include minutesBlockSize()
+    @include buttonBorder()
+    @include buttonHover()
+    cursor: pointer
+    background: none
+  .five-min
+    @include minutesBlockSize()
+    @include buttonBorder()
+    @include buttonHover()
+    cursor: pointer
+    background: none
+  .ten-min
+    @include minutesBlockSize()
+    @include buttonBorder()
+    @include buttonHover()
+    cursor: pointer
+    background: none
+.hide
+  display: none
+.play-btns
+  position: relative
+  .play
+    cursor: pointer
+    @include playPauseReplayButtonPosition(10%,45%,46%)
+  .pause
+    cursor: pointer
+    @include playPauseReplayButtonPosition(10%,45%,45%)
+  .replay
+    cursor: pointer
+    @include playPauseReplayButtonPosition(6%,72%,47%)
+  .time
+    font-size: 1.5em
+    position: absolute
+    top: 103%
+    left: 46%
+.weather-btns
+  height: 80%
+  display: flex
+  flex-direction: column
+  justify-content: space-evenly
+  .sun
+    cursor: pointer
+  .rain
+    cursor: pointer
