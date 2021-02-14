@@ -65,6 +65,8 @@ video
   display: none
 .play-btns
   position: relative
+  height: 80%
+  width: 35%
   .play
     cursor: pointer
     @include playPauseReplayButtonPosition(10%,45%,46%)
@@ -79,6 +81,14 @@ video
     position: absolute
     top: 103%
     left: 46%
+  .track
+    position: absolute
+    top: -1px
+    left: -1px
+  .move
+    position: absolute
+    top: -1px
+    left: -1px
 .weather-btns
   height: 80%
   display: flex

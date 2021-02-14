@@ -77,6 +77,8 @@ video {
 
 .play-btns {
   position: relative;
+  height: 80%;
+  width: 35%;
 }
 .play-btns .play {
   cursor: pointer;
@@ -110,6 +112,16 @@ video {
   position: absolute;
   top: 103%;
   left: 46%;
+}
+.play-btns .track {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+}
+.play-btns .move {
+  position: absolute;
+  top: -1px;
+  left: -1px;
 }
 
 .weather-btns {
