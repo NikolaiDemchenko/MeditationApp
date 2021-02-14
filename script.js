@@ -3,10 +3,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
    const play = doc.querySelector(".play-button"),
          pause = doc.querySelector(".pause-button"),
-         replay = doc.querySelector(".replay-button"),
          video = doc.querySelector(".video"),
          audio = doc.querySelector(".audio"),
-         time = doc.querySelector(".time");
+         time = doc.querySelector(".time"),
+         outline = doc.querySelector(".move circle"),
+         outlineLength = outline.getTotalLength();
+
+    outline.style.strokeDashoffset = outlineLength;
+    outline.style.strokeDasharray = outlineLength;
 
    let audioTime = 120;
 
@@ -49,7 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
        }
 
        if (getClassListContains(e, "two-min")) {
-           audioTime = 3;
+           audioTime = 120;
            time.innerHTML = `2:0`;
            audio.currentTime = 0;
        }
@@ -91,6 +95,8 @@ window.addEventListener("DOMContentLoaded", () => {
            sec = Math.floor(timeLeft % 60);
 
        time.innerHTML = `${min}:${sec}`;
+
+       outline.style.strokeDashoffset = outlineLength - (audio.currentTime / audioTime) * outlineLength;
 
        if (timeLeft < 0) {
            audio.pause();
